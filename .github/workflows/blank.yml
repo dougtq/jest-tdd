@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      run: echo Add other actions to build,
+      run: npm run test --if-present
         
