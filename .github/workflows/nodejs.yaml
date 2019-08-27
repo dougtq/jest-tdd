@@ -1,3 +1,7 @@
+name: Default CI
+
+on: [push]
+
 jobs:
   build:
 
