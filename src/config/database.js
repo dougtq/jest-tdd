@@ -1,11 +1,15 @@
 module.exports = {
-  "username": "docker",
+  "username": "postgres",
   "password": "docker",
   "database": "auth",
-  "host": "127.0.0.1",
+  "host": "localhost",
+  "port": "15432",
   "dialect": "postgres",
+  "dialectOptions": {
+    "ssl": false
+  },
   "operatorsAliases": false,
-  "logging": false,
+  "logging": true,
   "define": {
     "timestamps": true,
     "underscored": true,
