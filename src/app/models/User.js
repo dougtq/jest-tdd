@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 
 module.exports = (Sequelize, DataTypes) => {
     const User = Sequelize.define("User", {
@@ -15,7 +16,11 @@ module.exports = (Sequelize, DataTypes) => {
     })
 
     User.prototype.checkPassword = function (password) {
-       return bcrypt.compare(password, this.password_hash)
+        return bcrypt.compare(password, this.password_hash)
+    }
+
+    User.prototype.generateToken = function () {
+        return "Bearer " + jwt.sign({ _id: this.id }, process.env.JWT_SECRET || Date.now(), { expiresIn: "10m" })
     }
 
     return User
